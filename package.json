@@ -1,0 +1,15 @@
+{
+  "name": "my-data-grip",
+  "version": "1.0.0",
+  "description": "My own data grip",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^26.2.1"
+  }
+}
