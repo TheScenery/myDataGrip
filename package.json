@@ -1,15 +1,33 @@
 {
-  "name": "my-data-grip",
+  "name": "my-new-app",
+  "productName": "my-new-app",
   "version": "1.0.0",
-  "description": "My own data grip",
-  "main": "main.js",
+  "description": "My Electron application description",
+  "main": ".vite/build/main.js",
   "scripts": {
-    "start": "electron .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "publish": "electron-forge publish",
+    "lint": "echo \"No linting configured\""
   },
-  "author": "",
+  "keywords": [],
+  "author": {
+    "name": "TheScenery",
+    "email": "liuwenbin.lwb@gmail.com"
+  },
   "license": "MIT",
   "devDependencies": {
-    "electron": "^26.2.1"
+    "@electron-forge/cli": "^6.4.2",
+    "@electron-forge/maker-deb": "^6.4.2",
+    "@electron-forge/maker-rpm": "^6.4.2",
+    "@electron-forge/maker-squirrel": "^6.4.2",
+    "@electron-forge/maker-zip": "^6.4.2",
+    "@electron-forge/plugin-auto-unpack-natives": "^6.4.2",
+    "@electron-forge/plugin-vite": "^6.4.2",
+    "electron": "26.2.1"
+  },
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.0"
   }
 }
