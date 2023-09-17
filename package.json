@@ -1,8 +1,8 @@
 {
-  "name": "my-new-app",
-  "productName": "my-new-app",
+  "name": "my-data-grip",
+  "productName": "my-data-grip",
   "version": "1.0.0",
-  "description": "My Electron application description",
+  "description": "My Own Data Grip",
   "main": ".vite/build/main.js",
   "scripts": {
     "start": "electron-forge start",
@@ -17,6 +17,11 @@
     "email": "liuwenbin.lwb@gmail.com"
   },
   "license": "MIT",
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
   "devDependencies": {
     "@electron-forge/cli": "^6.4.2",
     "@electron-forge/maker-deb": "^6.4.2",
@@ -26,8 +31,5 @@
     "@electron-forge/plugin-auto-unpack-natives": "^6.4.2",
     "@electron-forge/plugin-vite": "^6.4.2",
     "electron": "26.2.1"
-  },
-  "dependencies": {
-    "electron-squirrel-startup": "^1.0.0"
   }
 }
