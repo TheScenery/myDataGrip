@@ -1,7 +1,12 @@
 import React from 'react';
+import SqlEditor from './SqlEditor/SqlEditor';
 
-const HelloWorld = () => {
-  return <div>Hello World 666!</div>;
+const App = () => {
+  return (
+      <div>
+        <SqlEditor/>
+      </div>
+  );
 };
 
-export default HelloWorld;
+export default App;
