@@ -3,3 +3,9 @@ body {
     height: 100vh;
     overflow: hidden;
 }
+
+#app {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
