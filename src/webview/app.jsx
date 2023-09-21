@@ -4,6 +4,7 @@ import ResultViewer from './ResultViewer/ResultViewer';
 import {ConfigProvider, Layout} from 'antd';
 import {theme} from './globalConfig';
 import {DatabaseTitle} from './components/DatabaseTitle/DatabaseTitle';
+import {MenuToolbar} from './components/MenuToolBar/MenuToolbar';
 
 const {Header, Footer, Sider, Content} = Layout;
 
@@ -13,6 +14,7 @@ const App = () => {
         <Layout hasSider>
           <Sider>
             <DatabaseTitle/>
+            <MenuToolbar/>
           </Sider>
           <Layout>
             <Header></Header>
