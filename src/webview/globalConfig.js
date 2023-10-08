@@ -3,7 +3,7 @@ export const theme = {
     Layout: {
       siderBg: '#343C4AFF',
       headerBg: '#343C4AFF',
-      headerHeight: 32
+      headerHeight: 32,
     },
   },
 };

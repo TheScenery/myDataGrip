@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import {DatabaseOutlined, PlusOutlined} from '@ant-design/icons';
-import {Dropdown} from 'antd';
+import { DatabaseOutlined, PlusOutlined } from '@ant-design/icons';
+import { Dropdown } from 'antd';
 
 const Container = styled.div`
   padding: 8px;
@@ -21,7 +21,7 @@ export const MenuToolbar = () => {
       label: 'Data Source',
       key: '0',
       children: [
-        {key: 'mySql', label: 'MySql'},
+        { key: 'mySql', label: 'MySql' },
       ],
     },
   ];
@@ -33,7 +33,7 @@ export const MenuToolbar = () => {
   const menu = {
     items,
     onClick,
-    style: {width: 200},
+    style: { width: 200 },
   };
 
   return (

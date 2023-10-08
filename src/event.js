@@ -1,0 +1,1 @@
+export const EXECUTE_SQL = 'executeSql';
