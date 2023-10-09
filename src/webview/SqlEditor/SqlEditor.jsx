@@ -9,7 +9,7 @@ const SqlEditor = () => {
   return (
       <div>
         <Editor height="50vh" defaultLanguage="sql" defaultValue={defaultValue}
-                theme="vs-dark" onChange={onChange}/>
+                theme="vs-dark" onChange={onChange} options={{ minimap: { enabled: false } }}/>
       </div>
   );
 };
