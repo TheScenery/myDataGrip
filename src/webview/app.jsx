@@ -5,18 +5,19 @@ import { ConfigProvider, Layout } from 'antd';
 import { theme } from './globalConfig';
 import { DatabaseTitle } from './components/DatabaseTitle/DatabaseTitle';
 import { MenuToolbar } from './components/MenuToolBar/MenuToolbar';
+import styled from 'styled-components';
 
 const { Sider, Content } = Layout;
 
-const App = () => {
+const App = ({ className }) => {
   return (
       <ConfigProvider theme={theme}>
-        <Layout hasSider>
+        <Layout hasSider className={className}>
           <Sider>
             <DatabaseTitle/>
             <MenuToolbar/>
           </Sider>
-          <Content>
+          <Content className='content-container'>
             <SqlEditor/>
             <ResultViewer/>
           </Content>
@@ -25,4 +26,9 @@ const App = () => {
   );
 };
 
-export default App;
+export default styled(App)`
+  .content-container{
+    display: flex;
+    flex-direction: column;
+  };
+`;
