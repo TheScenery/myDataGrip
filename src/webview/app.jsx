@@ -6,7 +6,7 @@ import { theme } from './globalConfig';
 import { DatabaseTitle } from './components/DatabaseTitle/DatabaseTitle';
 import { MenuToolbar } from './components/MenuToolBar/MenuToolbar';
 
-const { Header, Footer, Sider, Content } = Layout;
+const { Sider, Content } = Layout;
 
 const App = () => {
   return (
@@ -16,15 +16,10 @@ const App = () => {
             <DatabaseTitle/>
             <MenuToolbar/>
           </Sider>
-          <Layout>
-            <Header></Header>
-            <Layout>
-              <Content>
-                <SqlEditor/>
-                <ResultViewer/>
-              </Content>
-            </Layout>
-          </Layout>
+          <Content>
+            <SqlEditor/>
+            <ResultViewer/>
+          </Content>
         </Layout>
       </ConfigProvider>
   );
