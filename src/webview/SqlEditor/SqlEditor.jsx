@@ -4,6 +4,8 @@ import { Layout } from 'antd';
 import { CaretRightOutlined } from '@ant-design/icons';
 import styled from 'styled-components';
 import { Icon } from '../components/Icon/Icon';
+import { useDispatch } from 'react-redux';
+import { updateSql } from '../store/sqlSlice';
 
 const { Header } = Layout;
 
@@ -13,7 +15,7 @@ const Container = styled.div`
     align-items: center;
     padding: 0 1.5rem;
   }
-  
+
   .execute-icon {
     color: green;
   }
@@ -21,12 +23,15 @@ const Container = styled.div`
 
 const SqlEditor = () => {
   const [text, setText] = useState('');
+  const dispatch = useDispatch();
   const onChange = (val) => {
     setText(val);
   };
   const execute = () => {
     console.log(text);
+    dispatch(updateSql(text));
   };
+
   return (
       <Container>
         <Layout>
