@@ -1,6 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { execute } from '../api';
+import { updateData } from './dataSlice';
 
-export const sqlSlice = createSlice({
+const sqlSlice = createSlice({
   name: 'sql',
   initialState: '',
   reducers: {
@@ -11,5 +13,11 @@ export const sqlSlice = createSlice({
 });
 
 export const { updateSql } = sqlSlice.actions;
+
+export const executeSqlQuery = (sql) => async (dispatch) => {
+  dispatch(updateSql(sql));
+  const result = await execute(sql);
+  dispatch(updateData(result));
+};
 
 export default sqlSlice.reducer;

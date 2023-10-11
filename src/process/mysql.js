@@ -5,6 +5,7 @@ const connection = mysql.createConnection({
   port: 3306,
   user: 'root',
   password: '123456',
+  dateStrings: true,
   database: 'shop_assist',
 });
 

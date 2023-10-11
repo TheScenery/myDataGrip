@@ -35,5 +35,4 @@ export default styled(App)`
     display: flex;
     flex-direction: column;
   }
-;
 `;

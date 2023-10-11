@@ -5,7 +5,7 @@ import { CaretRightOutlined } from '@ant-design/icons';
 import styled from 'styled-components';
 import { Icon } from '../components/Icon/Icon';
 import { useDispatch } from 'react-redux';
-import { updateSql } from '../store/sqlSlice';
+import { executeSqlQuery, updateSql } from '../store/sqlSlice';
 
 const { Header } = Layout;
 
@@ -22,14 +22,13 @@ const Container = styled.div`
 `;
 
 const SqlEditor = () => {
-  const [text, setText] = useState('');
+  const [text, setText] = useState('SELECT * FROM t_user;');
   const dispatch = useDispatch();
   const onChange = (val) => {
     setText(val);
   };
   const execute = () => {
-    console.log(text);
-    dispatch(updateSql(text));
+    dispatch(executeSqlQuery(text));
   };
 
   return (
