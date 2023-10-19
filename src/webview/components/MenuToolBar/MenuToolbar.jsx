@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { DatabaseOutlined, PlusOutlined } from '@ant-design/icons';
 import { Dropdown } from 'antd';
+import { EditorDialog } from '../ConnectionPropertiesEditor/EditorDialog';
 
 const Container = styled.div`
   padding: 8px;
@@ -26,8 +27,19 @@ export const MenuToolbar = () => {
     },
   ];
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const onClick = (menuItem) => {
     console.log(menuItem.key);
+    setIsModalOpen(true);
+  };
+  const handleClose = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleOk = (value) => {
+    console.log('save connections', value);
+    handleClose();
   };
 
   const menu = {
@@ -42,6 +54,7 @@ export const MenuToolbar = () => {
             menu={menu} trigger={['click']}>
           <PlusOutlined className="menu-icon"/>
         </Dropdown>
+        <EditorDialog isOpen={isModalOpen} onClose={handleClose} onOk={handleOk}/>
       </Container>
   );
 };
