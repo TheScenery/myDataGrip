@@ -17,6 +17,7 @@ export const { updateSql } = sqlSlice.actions;
 export const executeSqlQuery = (sql) => async (dispatch) => {
   dispatch(updateSql(sql));
   const result = await execute(sql);
+  console.log(sql, result);
   dispatch(updateData(result));
 };
 
