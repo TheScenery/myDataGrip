@@ -8,6 +8,7 @@ import { MenuToolbar } from './components/MenuToolBar/MenuToolbar';
 import styled from 'styled-components';
 import { Provider } from 'react-redux';
 import store from './store';
+import { ConnectionList } from './components/Connections/ConnectionList';
 
 const { Sider, Content } = Layout;
 
@@ -19,6 +20,7 @@ const App = ({ className }) => {
             <Sider>
               <DatabaseTitle/>
               <MenuToolbar/>
+              <ConnectionList/>
             </Sider>
             <Content className="content-container">
               <SqlEditor/>
