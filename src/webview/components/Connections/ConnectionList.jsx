@@ -8,11 +8,9 @@ const CONNECTION_KEY_PREFIX = 'connection--';
 const DATABASE_KEY_PREFIX = 'database--';
 
 const Container = styled.div`
-  color: white;
-
   .connection-container {
-    background-color: #343C4AFF;
-    color: #FFFFFF;
+    background-color: var(--main-bg-color);
+    color: var(--main-text-color);
   }
 `;
 

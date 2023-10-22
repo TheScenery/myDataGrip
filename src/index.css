@@ -9,3 +9,10 @@ body {
     display: flex;
     flex-direction: column;
 }
+
+:root {
+    --main-bg-color: #343C4AFF;
+    --selected--item-bg-color: #4b5770;
+
+    --main-text-color: #FFFFFF;
+}

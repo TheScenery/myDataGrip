@@ -1,12 +1,12 @@
 export const theme = {
   components: {
     Layout: {
-      siderBg: '#343C4AFF',
-      headerBg: '#343C4AFF',
+      siderBg: 'var(--main-bg-color)',
+      headerBg: 'var(--main-bg-color)',
       headerHeight: 32,
     },
     Tree: {
-      nodeSelectedBg: '#4b5770'
-    }
+      nodeSelectedBg: 'var(--selected--item-bg-color)',
+    },
   },
 };
