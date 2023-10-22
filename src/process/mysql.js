@@ -1,7 +1,6 @@
 const mysql = require('mysql2');
 
 const defaultConfig = {
-  database: 'mysql',
   dateStrings: true,
 };
 

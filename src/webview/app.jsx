@@ -1,6 +1,4 @@
 import React from 'react';
-import SqlEditor from './SqlEditor/SqlEditor';
-import ResultViewer from './ResultViewer/ResultViewer';
 import { ConfigProvider, Layout } from 'antd';
 import { theme } from './globalConfig';
 import { DatabaseTitle } from './components/DatabaseTitle/DatabaseTitle';
@@ -9,10 +7,12 @@ import styled from 'styled-components';
 import { Provider } from 'react-redux';
 import store from './store';
 import { ConnectionList } from './components/Connections/ConnectionList';
+import { MainContent } from './views/MainContent';
 
 const { Sider, Content } = Layout;
 
 const App = ({ className }) => {
+
   return (
       <Provider store={store}>
         <ConfigProvider theme={theme}>
@@ -23,8 +23,7 @@ const App = ({ className }) => {
               <ConnectionList/>
             </Sider>
             <Content className="content-container">
-              <SqlEditor/>
-              <ResultViewer/>
+              <MainContent/>
             </Content>
           </Layout>
         </ConfigProvider>
