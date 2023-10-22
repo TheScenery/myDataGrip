@@ -7,3 +7,7 @@ export const execute = async (sql) => {
     fields: fields.map(c => ({ name: c.name })),
   };
 };
+
+export const activeConnection = async (config) => {
+  return await electronAPI.activeConnection(config);
+};

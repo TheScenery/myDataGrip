@@ -1,15 +1,12 @@
 const mysql = require('mysql2');
 
-const connection = mysql.createConnection({
-  host: 'localhost',
-  port: 3306,
-  user: 'root',
-  password: '123456',
+const defaultConfig = {
+  database: 'mysql',
   dateStrings: true,
-  database: 'shop_assist',
-});
+};
 
-export const query = async (sql) => new Promise((resolve, reject) => {
+let connection = null;
+const query = async (sql) => new Promise((resolve, reject) => {
   connection.query(sql, (error, result, fields) => {
     if (error) {
       reject(error);
@@ -18,3 +15,21 @@ export const query = async (sql) => new Promise((resolve, reject) => {
     }
   });
 });
+
+const activeConnection = async (config) => {
+  const processedConfig = {
+    ...defaultConfig,
+    host: config.host,
+    port: config.port,
+    user: config.user,
+    password: config.password,
+    database: config.database,
+  };
+  connection = mysql.createConnection(processedConfig);
+  return true;
+};
+
+export default {
+  query,
+  activeConnection,
+};

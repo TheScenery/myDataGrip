@@ -1,1 +1,2 @@
-export const EXECUTE_SQL = 'executeSql';
+export const EXECUTE_SQL = 'EXECUTE_SQL';
+export const ACTIVE_CONNECTION = 'ACTIVE_CONNECTION';

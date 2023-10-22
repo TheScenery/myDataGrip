@@ -1,5 +1,5 @@
-import { executeQuery } from './process/sqlProcess';
-import { EXECUTE_SQL } from './event';
+import { activeConnection, executeQuery } from './process/sqlProcess';
+import { ACTIVE_CONNECTION, EXECUTE_SQL } from './event';
 
 const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
@@ -33,6 +33,7 @@ const createWindow = () => {
 
 const bindEvent = () => {
   ipcMain.handle(EXECUTE_SQL, (event, sql) => executeQuery(sql));
+  ipcMain.handle(ACTIVE_CONNECTION, (event, config) => activeConnection(config));
 };
 
 // This method will be called when Electron has finished

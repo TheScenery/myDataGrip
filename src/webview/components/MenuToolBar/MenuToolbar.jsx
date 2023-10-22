@@ -4,7 +4,8 @@ import { DatabaseOutlined, PlusOutlined } from '@ant-design/icons';
 import { Dropdown } from 'antd';
 import { EditorDialog } from '../ConnectionPropertiesEditor/EditorDialog';
 import { useDispatch } from 'react-redux';
-import { addConnection } from '../../store/connectionSlice';
+import { createConnection } from '../../store/connectionSlice';
+import { MYSQL } from '../../../common/sqlTypes';
 
 const Container = styled.div`
   padding: 8px;
@@ -24,17 +25,18 @@ export const MenuToolbar = () => {
       label: 'Data Source',
       key: '0',
       children: [
-        { key: 'mySql', label: 'MySql' },
+        { key: MYSQL, label: 'MySql' },
       ],
     },
   ];
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const [sqlType, setSqlType] = useState(MYSQL);
   const dispatch = useDispatch();
 
   const onClick = (menuItem) => {
-    console.log(menuItem.key);
+    setSqlType(menuItem.key);
     setIsModalOpen(true);
   };
   const handleClose = () => {
@@ -43,7 +45,7 @@ export const MenuToolbar = () => {
 
   const handleOk = (value) => {
     console.log('save connections', value);
-    dispatch(addConnection(value));
+    dispatch(createConnection({ ...value, type: sqlType }));
     handleClose();
   };
 
