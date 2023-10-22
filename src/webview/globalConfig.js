@@ -5,5 +5,8 @@ export const theme = {
       headerBg: '#343C4AFF',
       headerHeight: 32,
     },
+    Tree: {
+      nodeSelectedBg: '#4b5770'
+    }
   },
 };
