@@ -1,5 +1,6 @@
 import { activeConnection, executeQuery } from './process/sqlProcess';
 import { ACTIVE_CONNECTION, EXECUTE_SQL } from './event';
+import { writeConfig } from './config';
 
 const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
@@ -42,6 +43,7 @@ const bindEvent = () => {
 app.on('ready', () => {
   bindEvent();
   createWindow();
+  writeConfig();
 });
 
 // Quit when all windows are closed, except on macOS. There, it's common
