@@ -3,12 +3,14 @@ import YAML from 'yaml';
 
 export const writeConfig = () => {
   const config = {
-    name: 'db1',
-    user: 'root',
-    password: 'test-pd',
+    connection: {
+      name: 'db1',
+      user: 'root',
+      password: 'test-pd',
+    },
   };
 
   console.log(YAML.stringify(config));
 
-  fs.writeFileSync('./config.yml', YAML.stringify(config), 'utf8');
+  fs.writeFileSync('./data/config.yml', YAML.stringify(config), 'utf8');
 };
