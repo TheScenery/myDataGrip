@@ -15,3 +15,7 @@ export const activeConnection = async (config) => {
 export const saveConnection = async (config) => {
   return await electronAPI.saveConnection(config);
 };
+
+export const loadConnections = async () => {
+  return await electronAPI.loadConnections();
+};

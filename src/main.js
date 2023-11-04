@@ -1,6 +1,6 @@
 import { activeConnection, executeQuery } from './process/sqlProcess';
-import { ACTIVE_CONNECTION, EXECUTE_SQL, SEVE_CONNECTION } from './event';
-import { saveConnection } from './config';
+import { ACTIVE_CONNECTION, EXECUTE_SQL, LOAD_CONNECTIONS, SEVE_CONNECTION } from './event';
+import { getAllConnections, saveConnection } from './config';
 
 const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
@@ -36,6 +36,7 @@ const bindEvent = () => {
   ipcMain.handle(EXECUTE_SQL, (event, sql) => executeQuery(sql));
   ipcMain.handle(ACTIVE_CONNECTION, (event, config) => activeConnection(config));
   ipcMain.handle(SEVE_CONNECTION, (event, config) => saveConnection(config));
+  ipcMain.handle(LOAD_CONNECTIONS, (event) => getAllConnections());
 };
 
 // This method will be called when Electron has finished

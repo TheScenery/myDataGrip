@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { activeConnection, execute, saveConnection } from '../api';
+import { activeConnection, execute, loadConnections, saveConnection } from '../api';
 
 const connectionSlice = createSlice({
   name: 'connection',
@@ -17,10 +17,13 @@ const connectionSlice = createSlice({
         return config;
       });
     },
+    initConnections: (state, action) => {
+      return action.payload;
+    },
   },
 });
 
-export const { addConnection, updateConnection } = connectionSlice.actions;
+export const { addConnection, updateConnection, initConnections } = connectionSlice.actions;
 
 const loadAllDatabase = (config) => async (dispatch) => {
   const { data } = await execute('show databases;');
@@ -36,6 +39,11 @@ export const createConnection = (config) => async (dispatch) => {
   await saveConnection(config);
   await activeConnection(config);
   dispatch(loadAllDatabase(config));
+};
+
+export const loadConnectionsAction = () => async (dispatch) => {
+  const connections = await loadConnections();
+  dispatch(initConnections(connections));
 };
 
 export const connectionSelector = state => state.connection;

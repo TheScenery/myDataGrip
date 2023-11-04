@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { DatabaseOutlined, PlusOutlined } from '@ant-design/icons';
 import { Dropdown } from 'antd';
 import { EditorDialog } from '../ConnectionPropertiesEditor/EditorDialog';
 import { useDispatch } from 'react-redux';
-import { createConnection } from '../../store/connectionSlice';
+import { createConnection, loadConnectionsAction } from '../../store/connectionSlice';
 import { MYSQL } from '../../../common/sqlTypes';
 
 const Container = styled.div`
@@ -35,6 +35,9 @@ export const MenuToolbar = () => {
   const [sqlType, setSqlType] = useState(MYSQL);
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(loadConnectionsAction());
+  }, []);
   const onClick = (menuItem) => {
     setSqlType(menuItem.key);
     setIsModalOpen(true);
