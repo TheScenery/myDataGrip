@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { activeConnection, execute } from '../api';
+import { activeConnection, execute, saveConnection } from '../api';
 
 const connectionSlice = createSlice({
   name: 'connection',
@@ -33,6 +33,7 @@ const loadAllDatabase = (config) => async (dispatch) => {
 
 export const createConnection = (config) => async (dispatch) => {
   dispatch(addConnection(config));
+  await saveConnection(config);
   await activeConnection(config);
   dispatch(loadAllDatabase(config));
 };

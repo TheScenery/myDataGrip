@@ -11,3 +11,7 @@ export const execute = async (sql) => {
 export const activeConnection = async (config) => {
   return await electronAPI.activeConnection(config);
 };
+
+export const saveConnection = async (config) => {
+  return await electronAPI.saveConnection(config);
+};
