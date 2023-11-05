@@ -12,11 +12,16 @@ export const loadConfig = () => {
   return YAML.parse(file);
 };
 
-export const saveConnection = async (connection) => {
-  return writeConfig({ connections: [connection] });
+export const getAllConnections = async () => {
+  try {
+    const config = loadConfig();
+    return config.connections;
+  } catch (e) {
+    return [];
+  }
 };
 
-export const getAllConnections = async () => {
-  const config = loadConfig();
-  return config.connections;
+export const saveConnection = async (connection) => {
+  const existConnections = await getAllConnections();
+  return writeConfig({ connections: [...existConnections, connection] });
 };
